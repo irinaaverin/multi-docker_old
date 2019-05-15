@@ -9,11 +9,11 @@ script:
   - docker run irinaid/react-test npm run test -- --coverage
 
 after_success:
-  - docker built -t irinaid/multi-client ./client
-  - docker built -t irinaid/multi-nginx ./nginx 
-  - docker built -t irinaid/multi-server ./server
-  - docker built -t irinaid/multi-worker ./worker  
-  
+  - docker build -t irinaid/multi-client ./client
+  - docker build -t irinaid/multi-nginx ./nginx 
+  - docker build -t irinaid/multi-server ./server
+  - docker build -t irinaid/multi-worker ./worker  
+
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push irinaid/multi-client
   - docker push irinaid/multi-nginx
