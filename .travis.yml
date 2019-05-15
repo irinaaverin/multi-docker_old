@@ -13,6 +13,7 @@ after_success:
   - docker built -t irinaid/multi-nginx ./nginx 
   - docker built -t irinaid/multi-server ./server
   - docker built -t irinaid/multi-worker ./worker  
+  
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push irinaid/multi-client
   - docker push irinaid/multi-nginx
