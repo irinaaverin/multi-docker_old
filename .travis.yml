@@ -15,14 +15,14 @@ after_success:
   - docker build -t irinaid/multi-worker ./worker  
 #Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-#Take those images and oush them to docker hub  
+#Take those images and push them to docker hub  
   - docker push irinaid/multi-client
   - docker push irinaid/multi-nginx
   - docker push irinaid/multi-server
   - docker push irinaid/multi-worker
-#
+
 deploy:
-  provider: elasticbeanstalk  
+  provider: elasticbeanstalk
   region: ap-southeast-2
   app: multi-docker
   env: MultiDocker-env
@@ -32,4 +32,4 @@ deploy:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
-    secure: $AWS_SECRET_KEY
+    secure: $AWS_SECRET_KEY    

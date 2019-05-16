@@ -26,15 +26,15 @@
             "name": "nginx",
             "image": "irinaid/multi-nginx",
             "hostname": "nginx",
-            "essential": true,
-            "memory": 128,
+            "essential": true,            
             "portMappings": [
                 {
                     "hostPort": 80,
                     "containerPort": 80
                 }
             ],
-            "links" : ["client","server"]
+            "links" : ["client","server"],
+            "memory": 128
         }                               
     ]
 }
